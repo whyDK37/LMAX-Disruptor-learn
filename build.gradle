@@ -1,0 +1,25 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+repositories {
+    mavenLocal()
+    //jcenter()
+    mavenCentral()
+    //maven { url "http://repo.spring.io/release",url "http://maven.petrikainulainen.net/repo" }
+}
+
+dependencies {
+    compile 'com.lmax:disruptor:3.3.6'
+    // test
+    testCompile 'org.testng:testng:6.9.4'
+}
+
+task sources(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
