@@ -20,7 +20,7 @@ public class LongEventMain
         int bufferSize = 1024;
 
         // Construct the Disruptor
-        Disruptor<LongEvent> disruptor = new Disruptor<>(factory, bufferSize, executor);
+        Disruptor<LongEvent> disruptor = new Disruptor<LongEvent>(factory, bufferSize, executor);
 
         // Connect the handler
         disruptor.handleEventsWith(new LongEventHandler());
